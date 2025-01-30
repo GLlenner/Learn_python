@@ -459,16 +459,47 @@ class Student(object):
 #     import doctest
 #     doctest.testmod()
 
-import os 
-print(os.name)
+# import os 
+# print(os.name)
 
 
+# import json
 
+# obj = dict(name='小明', age=20)
+# s = json.dumps(obj, ensure_ascii=True)
+# print(s)
 
+# print('a b   c'.split(' '))
 
+# import re
 
+# def is_valid_email(addr):
+#     m = re.match(r'[a-zA-Z\.]+@[A-Za-z]+\.com',addr)
+#     if not m:
+#         return False
+#     return True
 
+# # 测试:
+# assert is_valid_email('someone@gmail.com')
+# assert is_valid_email('bill.gates@microsoft.com')
+# assert not is_valid_email('bob#example.com')
+# assert not is_valid_email('mr-bob@example.com')
+# print('work')
 
+import re
+
+pattern = r'\..com'
+
+# 匹配的情况
+print(re.search(pattern, ".com"))       # ✅ 匹配 ".com"
+print(re.search(pattern, "x.com"))      # ✅ 匹配 ".com"
+print(re.search(pattern, "abc.com"))    # ✅ 匹配 ".com"
+print(re.search(pattern, "test.123com")) # ✅ 匹配 ".com"
+
+# 不匹配的情况
+print(re.search(pattern, "acom"))       # ❌ 不匹配，没有 `.com`
+print(re.search(pattern, "com"))        # ❌ 不匹配，没有 `.`
+print(re.search(pattern, "..com"))      # ❌ 不匹配，因为 `..` 不是 `.`
 
 
 
